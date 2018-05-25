@@ -17,4 +17,11 @@ public class TrainerDashboard extends Controller {
 
         render ("trainerdashboard.html", trainer, members);
     }
+
+    public static void deleteMember(Long id) {
+        Member member = Member.findById(id);
+        member.delete();
+        Logger.info("Removing " + member.getFirstName() + " " + member.getLastName());
+        redirect("/trainerdashboard");
+    }
 }

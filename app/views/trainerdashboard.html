@@ -8,6 +8,9 @@
         <div class="row">
             <i class="user icon"></i>
             <a href="/member/${member.id}">${member.getFirstName()} ${member.getLastName()}</a>
+            <a href="/trainerdashboard/deletemember/${member.id}" class="ui icon button">
+                <i class="icon trash alternate red"></i>
+            </a>
         </div>
         <p>${member.numberOfAssessments()} assessments</p>
     </section>

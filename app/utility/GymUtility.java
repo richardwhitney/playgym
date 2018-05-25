@@ -5,6 +5,7 @@ import models.Member;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
+import play.Logger;
 
 public class GymUtility {
 
@@ -71,6 +72,18 @@ public class GymUtility {
         }
         else {
             return false;
+        }
+    }
+
+    public static int compareAssessmentByWeight(Assessment currentAssessment, Assessment previousAssessment) {
+        if (currentAssessment.getWeight() < previousAssessment.getWeight()) {
+            return 1;
+        }
+        else if (currentAssessment.getWeight() > previousAssessment.getWeight()) {
+            return -1;
+        }
+        else {
+            return 0;
         }
     }
 

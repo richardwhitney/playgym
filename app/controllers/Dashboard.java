@@ -12,8 +12,8 @@ public class Dashboard extends Controller {
     public static void index() {
         Logger.info("Rendering Dashboard");
         Member member = Accounts.getLoggedInMember();
-        List<Assessment> assessments = member.getAssessments();
-        Assessment assessment = member.getLatestAssessment();
+        List<Assessment> assessments = member.getSortedAssessments();
+        //Assessment assessment = member.getLatestAssessment();
         render ("dashboard.html", member, assessments);
     }
 
@@ -24,6 +24,16 @@ public class Dashboard extends Controller {
         member.assessments.add(assessment);
         member.save();
         Logger.info("Adding Assessment");
+        redirect("/dashboard");
+    }
+
+    public static void deleteAssessment(Long id, Long assessmentid) {
+        Member member = Member.findById(id);
+        Assessment assessment = Assessment.findById(assessmentid);
+        Logger.info("Removing assessment:" + assessment.getId());
+        member.assessments.remove(assessment);
+        member.save();
+        assessment.delete();
         redirect("/dashboard");
     }
 }

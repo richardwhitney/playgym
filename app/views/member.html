@@ -5,7 +5,7 @@
 
 <section class="ui segment">
     #{memberinfo member:member/}
-    #{list items:member.getAssessments(), as:'assessment'}
+    #{list items:member.getSortedAssessments(), as:'assessment'}
         <table class="ui celled table">
             <thead>
             <tr>
@@ -15,6 +15,7 @@
                 <th>Upper Arm</th>
                 <th>Waist</th>
                 <th>Hips</th>
+                <th>Trend</th>
                 <th>Comment</th>
             </tr>
             </thead>
@@ -37,6 +38,17 @@
                     </td>
                     <td>
                     ${utility.GymUtility.round(assessment.getHips(), 2)}
+                    </td>
+                    <td>
+                        #{if assessment.getTrend() == 1}
+                            <i class="large arrow alternate circle down icon green"></i>
+                        #{/if}
+                        #{elseif assessment.getTrend() == -1}
+                            <i class="large arrow alternate circle up icon red"></i>
+                        #{/elseif}
+                        #{else}
+                            <i class="large arrow alternate circle right icon orange"></i>
+                        #{/else}
                     </td>
                     <td>
                     ${assessment.getComment()}

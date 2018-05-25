@@ -1,4 +1,5 @@
 Assessment(a1):
+  date: 2018-05-20 11:24:23
   weight: 122.3
   chest: 45.0
   thigh: 12.5
@@ -7,6 +8,7 @@ Assessment(a1):
   hips: 38.0
 
 Assessment(a2):
+  date: 2018-05-17 11:55:30
   weight: 123.3
   chest: 45.0
   thigh: 12.0

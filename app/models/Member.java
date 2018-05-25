@@ -1,11 +1,14 @@
 package models;
 
 import play.db.jpa.Model;
+import utility.GymUtility;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 @Entity
@@ -103,19 +106,45 @@ public class Member extends Model {
         return assessments;
     }
 
+    public List<Assessment> getSortedAssessments() {
+        assessmentProgressByWeight();
+        return assessments;
+    }
+
     public int numberOfAssessments() {
-        return getAssessments().size();
+        return assessments.size();
     }
 
     public boolean hasAssessment() {
-        if (getAssessments().size() > 0) {
+        if (assessments.size() > 0) {
             return true;
         }
         return false;
     }
 
+    public void assessmentProgressByWeight() {
+        Collections.sort(assessments);
+        for (int i = 0; i < assessments.size(); i++) {
+            if (i == assessments.size()-1) {
+                assessments.get(i).setTrend(0);
+            }
+            else {
+                if (GymUtility.compareAssessmentByWeight(assessments.get(i), assessments.get(i+1)) == 1) {
+                    assessments.get(i).setTrend(1);
+                }
+                else if (GymUtility.compareAssessmentByWeight(assessments.get(i), assessments.get(i+1)) == -1) {
+                    assessments.get(i).setTrend(-1);
+                }
+                else {
+                    assessments.get(i).setTrend(0);
+                }
+            }
+        }
+    }
+
     public Assessment getLatestAssessment() {
-        if (getAssessments().size() > 0) {
+        Collections.sort(assessments);
+        if (assessments.size() > 0) {
             return assessments.get(0);
         }
         return null;
