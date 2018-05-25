@@ -1,0 +1,14 @@
+#{extends 'main.html' /}
+#{set title:'Dashboard' /}
+
+#{trainermenu id:"trainerdashboard"/}
+
+#{list items:members, as:'member'}
+    <section class="ui segment">
+        <div class="row">
+            <i class="user icon"></i>
+            <a href="/member/${member.id}">${member.getFirstName()} ${member.getLastName()}</a>
+        </div>
+        <p>${member.numberOfAssessments()} assessments</p>
+    </section>
+#{/list}

@@ -1,0 +1,27 @@
+<div class="ui four column center aligned bottom aligned grid segment">
+    <div class="column">
+        <div class="ui large header"><i class="user icon"></i></div>
+        <h3 class="ui header">
+        ${_member.getFirstName().toUpperCase()} ${_member.getLastName().toUpperCase()}
+        </h3>
+    </div>
+    <div class="column">
+        #{if _member.hasAssessment()}
+            #{if utility.GymUtility.isIdealBodyWeight(_member, _member.getLatestAssessment())}
+                <div class="ui huge header"><i class="green tachometer alternate icon"></i></div>
+            #{/if}
+            #{else}
+                <div class="ui huge header"><i class="red tachometer alternate icon"></i></div>
+            #{/else}
+        #{/if}
+        <h3 class="ui header">IDEAL WEIGHT INDICATOR</h3>
+    </div>
+    <div class="column">
+        <div class="ui huge header"><i class="heartbeat icon"></i>#{if _member.hasAssessment()}${utility.GymUtility.round(utility.GymUtility.calculateBMI(_member, _member.getLatestAssessment()), 2)}#{/if}</div>
+        <h3 class="ui header">BMI</h3>
+    </div>
+    <div class="column">
+        <div class="ui huge header"><i class="user md icon"></i></div>
+        <h3 class="ui header">#{if _member.hasAssessment()}${utility.GymUtility.determineBMICategory(utility.GymUtility.round(utility.GymUtility.calculateBMI(_member, _member.getLatestAssessment()), 2))}#{/if}</h3>
+    </div>
+</div>

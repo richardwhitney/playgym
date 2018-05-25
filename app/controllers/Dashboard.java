@@ -11,16 +11,16 @@ public class Dashboard extends Controller {
 
     public static void index() {
         Logger.info("Rendering Dashboard");
-        Member member = Member.findByEmail("homer@simpson.com");
+        Member member = Accounts.getLoggedInMember();
         List<Assessment> assessments = member.getAssessments();
         Assessment assessment = member.getLatestAssessment();
         render ("dashboard.html", member, assessments);
     }
 
     public static void addAssessment(double weight, double chest, double thigh,
-                                     double upperArm, double waist, double hips) {
-        Member member = Member.findByEmail("homer@simpson.com");
-        Assessment assessment = new Assessment(weight, chest, thigh, upperArm, waist, hips);
+                                     double upperArm, double waist, double hips, String comment) {
+        Member member = Accounts.getLoggedInMember();
+        Assessment assessment = new Assessment(weight, chest, thigh, upperArm, waist, hips, comment);
         member.assessments.add(assessment);
         member.save();
         Logger.info("Adding Assessment");

@@ -13,14 +13,17 @@ public class Assessment extends Model {
     private double upperArm;
     private double waist;
     private double hips;
+    private String comment;
 
-    public Assessment(double weight, double chest, double thigh, double upperArm, double waist, double hips) {
+    public Assessment(double weight, double chest, double thigh, double upperArm,
+                      double waist, double hips, String comment) {
         this.weight = weight;
         this.chest = chest;
         this.thigh = thigh;
         this.upperArm = upperArm;
         this.waist = waist;
         this.hips = hips;
+        this.comment = comment;
     }
 
     public double getWeight() {
@@ -71,5 +74,12 @@ public class Assessment extends Model {
         this.hips = hips;
     }
 
+    public String getComment() {
+        return comment;
+    }
+
+    public void setComment(String comment) {
+        this.comment = comment;
+    }
 
 }

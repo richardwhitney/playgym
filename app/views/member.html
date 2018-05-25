@@ -1,0 +1,55 @@
+#{extends 'main.html' /}
+#{set title:'Member' /}
+
+#{trainermenu id:"trainerdashboard"/}
+
+<section class="ui segment">
+    #{memberinfo member:member/}
+    #{list items:member.getAssessments(), as:'assessment'}
+        <table class="ui celled table">
+            <thead>
+            <tr>
+                <th>Weight</th>
+                <th>Chest</th>
+                <th>Thigh</th>
+                <th>Upper Arm</th>
+                <th>Waist</th>
+                <th>Hips</th>
+                <th>Comment</th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                    ${utility.GymUtility.round(assessment.getWeight(), 2)}
+                    </td>
+                    <td>
+                    ${utility.GymUtility.round(assessment.getChest(), 2)}
+                    </td>
+                    <td>
+                    ${utility.GymUtility.round(assessment.getThigh(), 2)}
+                    </td>
+                    <td>
+                    ${utility.GymUtility.round(assessment.getUpperArm(), 2)}
+                    </td>
+                    <td>
+                    ${utility.GymUtility.round(assessment.getWaist(), 2)}
+                    </td>
+                    <td>
+                    ${utility.GymUtility.round(assessment.getHips(), 2)}
+                    </td>
+                    <td>
+                    ${assessment.getComment()}
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <form class="ui form" action="/member/${member.id}/updatecomment/${assessment.id}" method="POST">
+            <div class="field">
+                <label>Comment</label>
+                <textarea rows="2" name="comment"></textarea>
+            </div>
+            <button class="ui blue submit button">Update</button>
+        </form>
+    #{/list}
+</section>

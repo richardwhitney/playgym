@@ -103,6 +103,17 @@ public class Member extends Model {
         return assessments;
     }
 
+    public int numberOfAssessments() {
+        return getAssessments().size();
+    }
+
+    public boolean hasAssessment() {
+        if (getAssessments().size() > 0) {
+            return true;
+        }
+        return false;
+    }
+
     public Assessment getLatestAssessment() {
         if (getAssessments().size() > 0) {
             return assessments.get(0);

@@ -7,28 +7,32 @@
         <th>Upper Arm</th>
         <th>Waist</th>
         <th>Hips</th>
+        <th>Comment</th>
     </tr>
     </thead>
     <tbody>
         #{list items:_assessments, as:'assessment'}
         <tr>
             <td>
-            ${utility.GymUtility.round(assessment.getWeight(), 2)}
+                ${utility.GymUtility.round(assessment.getWeight(), 2)}
             </td>
             <td>
-            ${utility.GymUtility.round(assessment.getChest(), 2)}
+                ${utility.GymUtility.round(assessment.getChest(), 2)}
             </td>
             <td>
-            ${utility.GymUtility.round(assessment.getThigh(), 2)}
+                ${utility.GymUtility.round(assessment.getThigh(), 2)}
             </td>
             <td>
-            ${utility.GymUtility.round(assessment.getUpperArm(), 2)}
+                ${utility.GymUtility.round(assessment.getUpperArm(), 2)}
             </td>
             <td>
-            ${utility.GymUtility.round(assessment.getWaist(), 2)}
+                ${utility.GymUtility.round(assessment.getWaist(), 2)}
             </td>
             <td>
-            ${utility.GymUtility.round(assessment.getWaist(), 2)}
+                ${utility.GymUtility.round(assessment.getHips(), 2)}
+            </td>
+            <td>
+                ${assessment.getComment()}
             </td>
         </tr>
         #{/list}

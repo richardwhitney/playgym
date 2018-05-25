@@ -7,6 +7,16 @@ GET     /                                       Start.index
 GET     /dashboard                              Dashboard.index
 GET     /about                                  About.index
 POST    /dashboard/addassessment                Dashboard.addAssessment
+GET     /signup                                 Accounts.singup
+GET     /login                                  Accounts.login
+POST    /register                               Accounts.register
+POST    /authenticate                           Accounts.authenticate
+GET     /logout                                 Accounts.logout
+GET     /settings                               Settings.index
+POST    /settings/editmember                    Settings.editMember
+GET     /trainerdashboard                       TrainerDashboard.index
+GET     /member/{id}                            MemberCtrl.index
+POST    /member/{memberid}/updatecomment/{assessmentid}     MemberCtrl.updateComment
 
 # Ignore favicon requests
 GET     /favicon.ico                            404

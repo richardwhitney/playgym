@@ -14,6 +14,14 @@ Assessment(a2):
   waist: 31.0
   hips: 36.0
 
+Assessment(a3):
+  weight: 88.5
+  chest: 30
+  thigh: 12.0
+  upperArm: 16.6
+  waist: 26.0
+  hips: 30.1
+
 Member(m1):
   firstName: Homer
   lastName: Simpson
@@ -26,3 +34,21 @@ Member(m1):
   assessments:
   - a1
   - a2
+
+Member(m2):
+  firstName: Marge
+  lastName: Simpson
+  email: marge@simpson.com
+  password: secret
+  address: 241 Evergreen Terrect
+  gender: Female
+  height: 2.0
+  startWeight: 50.50
+  assessments:
+  - a3
+
+Trainer(T1):
+  firstName: Bart
+  lastName: Simpson
+  email: bart@simpson.com
+  password: secret

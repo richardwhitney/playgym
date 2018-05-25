@@ -1,0 +1,67 @@
+#{extends 'main.html' /}
+#{set title:'Settings' /}
+
+#{menu id:"settings"/}
+
+<div class="ui two column grid basic middle aligned segment">
+    <div class="column">
+        <img class="ui image" src="/public/images/sport-and-fitness-icons.jpg">
+    </div>
+    <div class="column">
+        <form class="ui stacked segment form" action="/settings/editMember" method="POST">
+            <h3 class="ui header">Settings</h3>
+            <div class="two fields">
+                <div class="field">
+                    <label>First Name</label>
+                    <input value=${member.getFirstName()} type="text" name="firstName">
+                </div>
+                <div class="field">
+                    <label>Last Name</label>
+                    <input value=${member.getLastName()} type="text" name="lastName">
+                </div>
+            </div>
+            <div class="two fields">
+                <div class="field">
+                    <label>Email</label>
+                    <input value=${member.getEmail()} type="text" name="email">
+                </div>
+                <div class="field">
+                    <label>Gender</label>
+                    <div class="ui selection dropdown">
+                        <input value=${member.getGender()} type="hidden" name="gender">
+                        <i class="dropdown icon"></i>
+                        <div class="default text">Gender</div>
+                        <div class="menu">
+                            <div class="item" data-value="Male">Male</div>
+                            <div class="item" data-value="Female">Female</div>
+                        </div>
+                    </div>
+                    <script>
+                        $('.ui.dropdown')
+                                .dropdown()
+                        ;
+                    </script>
+                </div>
+            </div>
+            <div class="field">
+                <label>Password</label>
+                <input value=${member.getPassword()} type="password" name="password">
+            </div>
+            <div class="field">
+                <label>Address</label>
+                <input value=${member.getAddress()} type="text" name="address">
+            </div>
+            <div class="two fields">
+                <div class="field">
+                    <label>Height</label>
+                    <input value=${member.getHeight()} type="number" name="height" step="0.01">
+                </div>
+                <div class="field">
+                    <label>Starting Weight</label>
+                    <input value=${member.getStartWeight()} type="number" name="startWeight" step="0.01">
+                </div>
+            </div>
+            <button class="ui blue submit button">Submit</button>
+        </form>
+    </div>
+</div>

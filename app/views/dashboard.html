@@ -4,18 +4,7 @@
 #{menu id:"dashboard"/}
 
 <section class="ui raised segment">
-    <div class="ui two column center aligned middle aligned grid segment">
-        <div class="column">
-            <div class="ui huge header"><i class="user icon huge"></i></div>
-            <h2 class="ui header">
-                ${member.getFirstName()} ${member.getLastName()}
-            </h2>
-        </div>
-        <div class="column">
-            <div class="ui huge header"><i class="heartbeat icon huge"></i>${utility.GymUtility.round(utility.GymUtility.calculateBMI(member, member.getLatestAssessment()), 2)}</div>
-            <h2 class="ui header">BMI</h2>
-        </div>
-    </div>
+    #{memberinfo member:member/}
     #{listassessments assessments:assessments/}
     #{addassessment /}
 </section>
