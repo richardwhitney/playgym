@@ -4,73 +4,20 @@
 #{menu id:"dashboard"/}
 
 <section class="ui raised segment">
-    <table class="ui celled table">
-        <thead>
-        <tr>
-            <th>Weight</th>
-            <th>Chest</th>
-            <th>Thigh</th>
-            <th>Upper Arm</th>
-            <th>Waist</th>
-            <th>Hips</th>
-        </tr>
-        </thead>
-        <tbody>
-        #{list items:assessments, as:'assessment'}
-            <tr>
-                <td>
-                    ${assessment.weight}
-                </td>
-                <td>
-                    ${assessment.chest}
-                </td>
-                <td>
-                    ${assessment.thigh}
-                </td>
-                <td>
-                    ${assessment.upperArm}
-                </td>
-                <td>
-                    ${assessment.waist}
-                </td>
-                <td>
-                    ${assessment.hips}
-                </td>
-            </tr>
-        #{/list}
-        </tbody>
-    </table>
-    <form class="ui segment form" action="/dashboard/addassessment" method="POST">
-        <div class="three fields">
-            <div class="field">
-                <label>Weight</label>
-                <input type="number" placeholder="00.00kg" name="weight">
-            </div>
-            <div class="field">
-                <label>Chest</label>
-                <input type="number" placeholder="00.00cm" name="chest">
-            </div>
-            <div class="field">
-                <label>Thigh</label>
-                <input type="number" placeholder="00.00cm" name="thigh">
-            </div>
+    <div class="ui two column center aligned middle aligned grid segment">
+        <div class="column">
+            <div class="ui huge header"><i class="user icon huge"></i></div>
+            <h2 class="ui header">
+                ${member.getFirstName()} ${member.getLastName()}
+            </h2>
         </div>
-        <div class="three fields">
-            <div class="field">
-                <label>Upper Arm</label>
-                <input type="number" placeholder="00.00cm" name="upperArm">
-            </div>
-            <div class="field">
-                <label>Waist</label>
-                <input type="number" placeholder="00.00cm" name="waist">
-            </div>
-            <div class="field">
-                <label>Hips</label>
-                <input type="number" placeholder="00.00cm" name="hips">
-            </div>
+        <div class="column">
+            <div class="ui huge header"><i class="heartbeat icon huge"></i>${utility.GymUtility.round(utility.GymUtility.calculateBMI(member, member.getLatestAssessment()), 2)}</div>
+            <h2 class="ui header">BMI</h2>
         </div>
-        <button class="ui blue submit button">Add Assessment</button>
-    </form>
+    </div>
+    #{listassessments assessments:assessments/}
+    #{addassessment /}
 </section>
 
 

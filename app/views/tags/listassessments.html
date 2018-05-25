@@ -1,0 +1,36 @@
+<table class="ui celled table">
+    <thead>
+    <tr>
+        <th>Weight</th>
+        <th>Chest</th>
+        <th>Thigh</th>
+        <th>Upper Arm</th>
+        <th>Waist</th>
+        <th>Hips</th>
+    </tr>
+    </thead>
+    <tbody>
+        #{list items:_assessments, as:'assessment'}
+        <tr>
+            <td>
+            ${utility.GymUtility.round(assessment.getWeight(), 2)}
+            </td>
+            <td>
+            ${utility.GymUtility.round(assessment.getChest(), 2)}
+            </td>
+            <td>
+            ${utility.GymUtility.round(assessment.getThigh(), 2)}
+            </td>
+            <td>
+            ${utility.GymUtility.round(assessment.getUpperArm(), 2)}
+            </td>
+            <td>
+            ${utility.GymUtility.round(assessment.getWaist(), 2)}
+            </td>
+            <td>
+            ${utility.GymUtility.round(assessment.getWaist(), 2)}
+            </td>
+        </tr>
+        #{/list}
+    </tbody>
+</table>
