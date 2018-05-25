@@ -13,22 +13,22 @@
             <div class="two fields">
                 <div class="field">
                     <label>First Name</label>
-                    <input value=${member.getFirstName()} type="text" name="firstName">
+                    <input value="${member.getFirstName()}" type="text" name="firstName">
                 </div>
                 <div class="field">
                     <label>Last Name</label>
-                    <input value=${member.getLastName()} type="text" name="lastName">
+                    <input value="${member.getLastName()}" type="text" name="lastName">
                 </div>
             </div>
             <div class="two fields">
                 <div class="field">
                     <label>Email</label>
-                    <input value=${member.getEmail()} type="text" name="email">
+                    <input value="${member.getEmail()}" type="text" name="email">
                 </div>
                 <div class="field">
                     <label>Gender</label>
                     <div class="ui selection dropdown">
-                        <input value=${member.getGender()} type="hidden" name="gender">
+                        <input value="${member.getGender()}" type="hidden" name="gender">
                         <i class="dropdown icon"></i>
                         <div class="default text">Gender</div>
                         <div class="menu">
@@ -45,20 +45,20 @@
             </div>
             <div class="field">
                 <label>Password</label>
-                <input value=${member.getPassword()} type="password" name="password">
+                <input value="${member.getPassword()}" type="password" name="password">
             </div>
             <div class="field">
                 <label>Address</label>
-                <input value=${member.getAddress()} type="text" name="address">
+                <input value="${member.getAddress()}" type="text" name="address">
             </div>
             <div class="two fields">
                 <div class="field">
                     <label>Height</label>
-                    <input value=${member.getHeight()} type="number" name="height" step="0.01">
+                    <input value="${member.getHeight()}" type="number" name="height" step="0.01">
                 </div>
                 <div class="field">
                     <label>Starting Weight</label>
-                    <input value=${member.getStartWeight()} type="number" name="startWeight" step="0.01">
+                    <input value="${member.getStartWeight()}" type="number" name="startWeight" step="0.01">
                 </div>
             </div>
             <button class="ui blue submit button">Submit</button>
