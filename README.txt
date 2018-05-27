@@ -12,3 +12,4 @@ lisa@simpson.com - secret
 Trainer Login Details:
 bart@simpson.com - secret
 
+I aimed to implement everything up to and including the outstanding level of the grading spectrum.
