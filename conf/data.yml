@@ -43,12 +43,22 @@ Member(m2):
   lastName: Simpson
   email: marge@simpson.com
   password: secret
-  address: 241 Evergreen Terrect
+  address: 241 Evergreen Terrece
   gender: Female
   height: 2.0
   startWeight: 50.50
   assessments:
   - a3
+
+Member(m3):
+  firstName: Lisa
+  lastName: Simpson
+  email: lisa@simpson.com
+  password: secret
+  address: 241 Evergreen Terrece
+  gender: Female
+  height: 1.5
+  startWeight: 48.4
 
 Trainer(T1):
   firstName: Bart
