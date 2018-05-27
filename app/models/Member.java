@@ -129,15 +129,7 @@ public class Member extends Model {
                 assessments.get(i).setTrend(0);
             }
             else {
-                if (GymUtility.compareAssessmentByWeight(assessments.get(i), assessments.get(i+1)) == 1) {
-                    assessments.get(i).setTrend(1);
-                }
-                else if (GymUtility.compareAssessmentByWeight(assessments.get(i), assessments.get(i+1)) == -1) {
-                    assessments.get(i).setTrend(-1);
-                }
-                else {
-                    assessments.get(i).setTrend(0);
-                }
+                assessments.get(i).setTrend(GymUtility.compareAssessmentByWeight(assessments.get(i), assessments.get(i+1)));
             }
         }
     }
