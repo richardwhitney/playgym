@@ -126,7 +126,16 @@ public class Member extends Model {
         Collections.sort(assessments);
         for (int i = 0; i < assessments.size(); i++) {
             if (i == assessments.size()-1) {
-                assessments.get(i).setTrend(0);
+                Assessment assessment = assessments.get(assessments.size()-1);
+                if (assessment.getWeight() < getStartWeight()) {
+                    assessment.setTrend(1);
+                }
+                else if (assessment.getWeight() > getStartWeight()) {
+                    assessment.setTrend(-1);
+                }
+                else {
+                    assessment.setTrend(0);
+                }
             }
             else {
                 assessments.get(i).setTrend(GymUtility.compareAssessmentByWeight(assessments.get(i), assessments.get(i+1)));
